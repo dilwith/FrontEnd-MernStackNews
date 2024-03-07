@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { Navbar } from './components/Navbar/Navbar.jsx'
 import Home from './pages/Home/home.jsx'
-import { Search } from './pages/Search/search.jsx'
+import { Search } from './pages/Search/Search.jsx'
 import { GlobalStyled } from './GlobalStyled.jsx'
+import { Authentication } from './pages/authentication/Authentication.jsx'
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/auth",
+    element: <Authentication/>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

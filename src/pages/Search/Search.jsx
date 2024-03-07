@@ -12,6 +12,7 @@ export function Search() {
       try {
         const postsApi = await searchPosts(title);
         setPosts(postsApi.data.foundPosts);
+        //console.log(posts) debug para ver onde estao os posts 
       } catch (err) {
         setPosts([]);
       }
