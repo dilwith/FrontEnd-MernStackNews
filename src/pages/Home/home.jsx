@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Card } from "../../components/Card/Card.jsx";
 import { getAllPosts, getTopPost } from "../../services/postsServices";
 import { HomeBody, HomeHeader } from "./HomeStyled.jsx";
+import Cookies from "js-cookie";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -9,6 +10,7 @@ export default function Home() {
 
   async function findPost() {
     const postsResponse = await getAllPosts();
+    //console.log(postsResponse)
     setPosts(postsResponse.data.results);
 
     const topPostResponse = await getTopPost();
@@ -17,6 +19,7 @@ export default function Home() {
 
   useEffect(() => {
     findPost();
+    console.log(Cookies.get("token"))
   }, []);
 
   return (

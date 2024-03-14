@@ -33,4 +33,3 @@ export const Section = styled.section`
     font-weight: 700;
   }
 `;
-

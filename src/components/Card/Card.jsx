@@ -34,7 +34,7 @@ export function Card(props) {
     
   }
   Card.propTypes = {
-      top: PropTypes.bool,
+      top: PropTypes.string,
       title: PropTypes.string,
       text: PropTypes.string,
       banner: PropTypes.string,

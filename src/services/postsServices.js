@@ -1,35 +1,28 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const baseURL = "http://localhost:3001";
 
-export  function getAllPosts() {
-    return  axios.get(`${baseURL}/posts`)
-    .then(response => {
-        return response;
-      })
-      .catch(error => {
-        return error;
-      });
+export async function getAllPosts() {
+  const response = await axios.get(`${baseURL}/posts`); 
+  return response;
 }
 
-export  function getTopPost() {
-  return  axios.get(`${baseURL}/posts/top`)
-  .then(response => {
-      return response;
-    })
-    .catch(error => {
-      return error;
-    });
+export async function getTopPost() {
+  const response = await axios.get(`${baseURL}/posts/top`); 
+  return response;
 }
 
-export  function searchPosts(title) {
-  return  axios.get(`${baseURL}/posts/search?title=${title}`)
-  .then(response => {
-      return response;
-    })
-    .catch(error => {
-      return error; 
-      
-    });
+export async function searchPosts(title) {
+  const response = await axios.get(`${baseURL}/posts/search?title=${title}`);
+  return response;
 }
 
+export async function getAllPostsByUser(){
+  const response = axios.get(`${baseURL}/posts/byUserId`, {
+    headers: {
+      Authorization: `Bearer ${Cookies.get("token")}`,
+    },
+  })
+  return response;
+}
